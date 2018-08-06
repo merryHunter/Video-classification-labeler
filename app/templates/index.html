@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>{{ title }} - Microblog</title>
+    </head>
+    <style>
+        input[type=submit]{
+    width: 260px;
+    height: 85px;
+    background: lawngreen;
+    /*border: 1px solid #000000;*/
+    cursor: pointer;
+    border-radius: 2px;
+    color: #000000;
+    font-family: 'Exo', sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    padding: 6px;
+    margin-top: 10px;
+}
+    </style>
+    <body>
+     <!--<iframe src="/home/ivan/Downloads/europilot_data/turn_videos/normal_4/0b01ca80-852faffa.mov" width="853" height="480" frameborder="0" allowfullscreen></iframe>-->
+    <!--<div style="position:relative; width: 640px; height: 480px; ">-->
+  <div>
+     <video id='myVideo' style='float:left; width: 640px; height: 480px; ' autoplay preload='metadata' controls>
+      <source src="{{ video_path }}" type="video/mp4">
+    </video>
+      </div>
+{% block content %}
+    <form style='float:left; margin: 50px;font-size: 25px;' action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+          {% for subfield in form.radio %}
+            <tr>
+                <td>{{ subfield }}</td>
+                <td>{{ subfield.label }}</td>
+            </tr>
+        <br/>
+        {% endfor %}
+        <p>{{ form.submit() }}</p>
+    </form>
+
+
+{% endblock %}
+    <!--</div>-->
+    <script>
+var vid = document.getElementById("myVideo");
+vid.playbackRate = 5.0;
+</script>
+    </body>
+</html>

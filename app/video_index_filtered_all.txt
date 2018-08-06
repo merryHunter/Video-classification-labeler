@@ -1,0 +1,2 @@
+topdir/train-03/videos/0b01ca80-852faffa.mov
+topdir/train-04/videos/0abf21f6-e0708227.mov
