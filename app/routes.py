@@ -47,8 +47,10 @@ def video(train_part, video_name):
         try:
             print('Label for video {}'.format(
                 form.radio.data))
-            with open('video_index_all_labels.txt', "w+") as out:
-                out.write(train_part + "/videos/" + video_name + ":" + str(form.radio.data))
+            label = form.radio.data
+            if label != "-1":
+                with open('video_index_all_labels.txt', "a") as out:
+                    out.write(train_part + "/videos/" + video_name + ":" + str(label) + "\n")
             train_part, video_name = get_next_train_part_video()
             if video_name is None:
                 return render_template('error.html', title='Error')
